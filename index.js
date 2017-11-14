@@ -42,7 +42,8 @@ module.exports = function (content) {
     var filePath = [prefix, resource.slice(relativeToIndex + relativeTo.length)]
         .filter(Boolean)
         .join(pathSep)
-        .replace(new RegExp(escapeRegExp(pathSep) + '+', 'g'), pathSep);
+        .replace(new RegExp(escapeRegExp(pathSep) + '+', 'g'), pathSep)
+        .replace(/\.html.*/, ".html");
     var html;
 
     if (content.match(/^module\.exports/)) {
